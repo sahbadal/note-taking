@@ -1,8 +1,23 @@
-
+import {Route, Routes} from 'react-router-dom'
+import SignUp from './pages/SignUp.tsx'
+import SignIn from './pages/SignIn.tsx'
+import Dashboard from './pages/Dashboard.tsx'
+import PrivateRoute from './routes/PrivateRoute.tsx'
 
 const App = () => {
   return (
-    <div>App</div>
+    <Routes>
+      <Route path="/" element={<SignUp />} />
+      <Route path="/signin" element={<SignIn />} />
+      <Route
+        path="/dashboard"
+        element={
+          <PrivateRoute>
+            <Dashboard />
+          </PrivateRoute>
+        }
+      />
+    </Routes>
   )
 }
 
