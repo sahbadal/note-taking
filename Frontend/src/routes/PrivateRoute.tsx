@@ -1,13 +1,12 @@
 import { Navigate } from 'react-router-dom';
-// import { useAuth } from '../context/AuthContext';
+import { useAuth } from '../context/AuthContext';
 
 interface Props {
   children: React.ReactNode;
 }
 
 const PrivateRoute = ({ children }: Props) => {
-  // const { user } = useAuth();
-  const user = { name: 'John Doe' }; // Mock user
+  const { user } = useAuth();
   return user ? <>{children}</> : <Navigate to="/signin" />;
 };
 
