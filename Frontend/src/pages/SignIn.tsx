@@ -72,7 +72,7 @@ const SignIn = () => {
           {/* Sign In Button */}
           <button
             onClick={handleLogin}
-            className="w-full text-white py-2 rounded-lg font-medium bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600 transition-all cursor-pointer"
+            className="w-full text-white py-2 rounded-lg font-medium bg-gradient-to-r from-blue-500 to-purple-500  cursor-pointer"
           >
             Sign In
           </button>
