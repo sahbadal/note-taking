@@ -40,11 +40,11 @@ const SignUp = () => {
       <div className="flex w-full max-w-5xl bg-white rounded-3xl shadow-xl overflow-hidden">
         {/* Left: Form Section */}
         <div className="w-full md:w-1/2 p-8 md:p-12">
-          <div className="flex items-center justify-center mb-6">
-            <div className="bg-gradient-to-r from-indigo-500 to-purple-500 text-white px-3 py-1 rounded-full text-sm font-bold">
-              <StickyNote className="h-6 w-6" />
+          <div className="flex items-center justify-center mb-6 gap-x-2">
+            <div className="bg-yellow-400 p-2 rounded-full shadow-md">
+              <StickyNote className="h-6 w-6 text-white" />
             </div>
-            <h1 className="ml-2 text-2xl font-bold text-gray-800">Note</h1>
+            <h1 className="text-3xl font-bold text-gray-800">Note</h1>
           </div>
 
           <h2 className="text-3xl font-semibold text-center mb-2">Sign up</h2>
