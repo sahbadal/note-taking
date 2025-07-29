@@ -38,7 +38,7 @@ router.get(
       { expiresIn: '7d' }
     );
 
-    res.redirect(`http://localhost:5173/oauth-redirect?token=${token}`);
+    res.redirect(`https://note-taking-sandy-ten.vercel.app/oauth-redirect?token=${token}`);
 
   }
 );
