@@ -42,7 +42,7 @@ and securely create or delete personal notes. This project follows modern practi
   - Animated buttons and clean layout using Tailwind CSS
 
 - ☁️ **Cloud Deployment**
-  - Both frontend & backend hosted on Render
+  - frontend on vercel & backend hosted on Render
 
 ---
 
