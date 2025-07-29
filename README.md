@@ -7,7 +7,7 @@ and securely create or delete personal notes. This project follows modern practi
 
 ## 🚀 Live URLs
 
- [https://note-taking-app](https://note-taking-sandy-ten.vercel.app/)
+ [https://note-taking-app](https://note-taking-sandy-ten.vercel.app)
 
 
 ---
