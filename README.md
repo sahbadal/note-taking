@@ -51,6 +51,30 @@ and securely create or delete personal notes. This project follows modern practi
 ### 1. Clone Repository
 
 ```bash
-git clone https://github.com/your-username/note-taking-app.git
-cd note-taking-app
+git clone https://github.com/sahbadal/note-taking.git
 
+cd backend
+npm install
+
+create .env file
+PORT=your_port
+MONGODB_URI=your_mongodb_connection_string
+JWT_SECRET=your_jwt_secret
+EXPIRATION_TIME=time
+GOOGLE_CLIENT_ID=your_google_client_id
+GOOGLE_CLIENT_SECRET=your_google_client_secret
+FRONTEND_URL=your_url
+
+
+Start : npm run dev
+
+cd ../frontend
+npm install
+
+create .env
+
+Start : npm run dev
+
+```
+
+Made with ❤️ By Badal sah
