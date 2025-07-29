@@ -10,7 +10,7 @@ if (!JWT_SECRET) {
 }
 
 const generateToken = (userId: string, email: string): string => {
-  return jwt.sign({ id: userId, email }, JWT_SECRET, {
+  return jwt.sign({ userId, email }, JWT_SECRET, {
     expiresIn: EXPIRATION,
   });
 };

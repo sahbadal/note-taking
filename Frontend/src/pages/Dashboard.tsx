@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { LogOut, Trash2, Plus, StickyNote } from 'lucide-react';
+import axiosInstance from '../utils/axiosInstance';
 
 interface Note {
   _id: string;
@@ -14,24 +15,47 @@ const Dashboard = () => {
   const [noteData, setNoteData] = useState({ title: '', content: '' });
   const [showForm, setShowForm] = useState(false);
 
+  // 🔃 Get notes on mount
+  useEffect(() => {
+    const fetchNotes = async () => {
+      try {
+        const res = await axiosInstance.get('/');
+        setNotes(res.data); // Assuming: [{ _id, title, content }]
+      } catch (err) {
+        alert('Failed to fetch notes');
+      }
+    };
+
+    fetchNotes();
+  }, []);
+
+  // 🔁 Input handler
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setNoteData({ ...noteData, [e.target.name]: e.target.value });
   };
 
-  const handleCreateNote = () => {
+  // ✅ Create Note
+  const handleCreateNote = async () => {
     if (!noteData.title.trim()) return;
-    const newNote: Note = {
-      _id: Date.now().toString(),
-      title: noteData.title,
-      content: noteData.content,
-    };
-    setNotes([...notes, newNote]);
-    setNoteData({ title: '', content: '' });
-    setShowForm(false);
+
+    try {
+      const res = await axiosInstance.post('/', noteData);
+      setNotes([...notes, res.data]); // append new note
+      setNoteData({ title: '', content: '' });
+      setShowForm(false);
+    } catch (err) {
+      alert('Failed to create note');
+    }
   };
 
-  const handleDelete = (id: string) => {
-    setNotes(notes.filter((note) => note._id !== id));
+  // ❌ Delete Note
+  const handleDelete = async (id: string) => {
+    try {
+      await axiosInstance.delete(`/${id}`);
+      setNotes(notes.filter((n) => n._id !== id));
+    } catch (err) {
+      alert('Failed to delete note');
+    }
   };
 
   return (

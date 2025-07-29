@@ -10,8 +10,13 @@ import './config/passport';
 const app = express();
 
 
+const origin = ['http://localhost:5173']
+
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin,
+  credentials: true
+}));
 app.use(express.json());
 
 app.use(session({ secret: 'your_secret', resave: false, saveUninitialized: true }));

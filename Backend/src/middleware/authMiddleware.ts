@@ -13,7 +13,7 @@ export const protect = async (req: AuthRequest, res: Response, next: NextFunctio
 
   try {
     const decoded: any = jwt.verify(token, process.env.JWT_SECRET!);
-    const user = await User.findById(decoded.id).select('-otp -otpExpiry');
+    const user = await User.findById(decoded.userId).select('-otp -otpExpiry');
     if (!user) return res.status(401).json({ message: 'User not found' });
 
     req.user = user;

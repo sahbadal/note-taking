@@ -22,15 +22,10 @@ const OAuthRedirect = () => {
 
     const urlParams = new URLSearchParams(window.location.search);
     const token = urlParams.get('token');
-    console.log('OAuthRedirect token:', token);
 
     if (token) {
       localStorage.setItem('token', token);
       const decoded = jwtDecode<DecodedToken>(token);
-
-      console.log('Decoded:', decoded);
-      console.log('User logged in:', decoded.email);
-      console.log('user name:', decoded.name);
 
       login({ name: decoded.name || 'Google User', email: decoded.email });
       navigate('/dashboard');
