@@ -4,11 +4,14 @@ import SignIn from './pages/SignIn.tsx'
 import Dashboard from './pages/Dashboard.tsx'
 import PrivateRoute from './routes/PrivateRoute.tsx'
 import OAuthRedirect from './pages/OAuthRedirect.tsx'
+import { Toaster } from 'react-hot-toast'
 
 const App = () => {
   return (
-    <Routes>
-      <Route path="/" element={<SignUp />} />
+    <>
+      <Toaster />
+      <Routes>
+        <Route path="/" element={<SignUp />} />
       <Route path="/signin" element={<SignIn />} />
       <Route path="/oauth-redirect" element={<OAuthRedirect />} />
       <Route
@@ -20,6 +23,7 @@ const App = () => {
         }
       />
     </Routes>
+    </>
   )
 }
 

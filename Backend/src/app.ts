@@ -10,7 +10,7 @@ import './config/passport';
 const app = express();
 
 
-const origin = ['http://localhost:5173']
+const origin = ['http://localhost:5173','https://note-taking-sandy-ten.vercel.app']
 
 // Middleware
 app.use(cors({

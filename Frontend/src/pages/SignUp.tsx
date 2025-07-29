@@ -5,6 +5,7 @@ import { useAuth } from '../context/AuthContext';
 import { User, Calendar, Mail, KeyRound, StickyNote } from 'lucide-react';
 import googleIcon from '../assets/google.png';
 import registerImage from '../assets/registerpage_image.jpg';
+import toast from 'react-hot-toast';
 
 const SignUp = () => {
   const { login } = useAuth();
@@ -35,10 +36,11 @@ const SignUp = () => {
         }
       );
       if (res.status === 200) {
+        toast.success('OTP sent to your email');
         setStep(2);
       }
     } catch (err) {
-      alert('Failed to send OTP');
+      toast.error('Failed to send OTP');
     } finally {
       setLoading(false);
     }
@@ -62,7 +64,7 @@ const SignUp = () => {
       login(user);
       navigate('/dashboard');
     } catch (err) {
-      alert('Invalid OTP or Signup failed');
+      toast.error('Invalid OTP or Signup failed');
     } finally {
       setLoading(false);
     }

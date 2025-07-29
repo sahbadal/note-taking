@@ -5,6 +5,7 @@ import { useAuth } from '../context/AuthContext';
 import { Mail, KeyRound, StickyNote } from 'lucide-react';
 import googleIcon from '../assets/google.png';
 import registerImage from '../assets/registerpage_image.jpg';
+import toast from 'react-hot-toast';
 
 const SignIn = () => {
   const { login } = useAuth();
@@ -25,10 +26,11 @@ const SignIn = () => {
         email: formData.email,
       });
       if (res.status === 200) {
+        toast.success('OTP sent to your email');
         setStep(2);
       }
     } catch (err) {
-      alert('Failed to send OTP');
+      toast.error('Failed to send OTP');
     } finally {
       setLoading(false);
     }
@@ -47,7 +49,7 @@ const SignIn = () => {
       login(user);
       navigate('/dashboard');
     } catch (err) {
-      alert('Invalid OTP or Login failed');
+      toast.error('Invalid OTP or Login failed');
     } finally {
       setLoading(false);
     }
